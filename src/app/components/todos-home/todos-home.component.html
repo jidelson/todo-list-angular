@@ -1,3 +1,24 @@
+<!-- *ngIf is a structural directive! It will change the DOM structure based on a boolean-->
+<!-- if the "greeterDiv" variable in TS is true, this div will display. If false, it won't-->
+<div *ngIf = "greeterDiv"> <!-- greeterDiv is a TS variable of type boolean-->
+
+    <label for="yourName">What's your name?</label>
+    <!-- Two way binding to assign the user input to this "name" variable-->
+    <input type="text" id="yourName" [(ngModel)]="name" />
+
+    <!-- Event binding to perform a function when you click this button-->
+    <!-- This function will make the greeterDiv variable false, thus utilizing *ngIf-->
+    <button (click)="submitName()">Submit</button>
+</div>
+
+<br>
+<!-- If the name variable is empty, it'll evaluate to false (since an empty string is falsy)-->
+<!-- BUT, if there IS something in the name variable, the *ngIf will display it, with String Interpolation-->
+<h2 *ngIf="name">Welcome, {{name}}</h2>
+
+
+
+
 <div class="grid-container">
 
     <!--Using [property binding] on the "hidden" property to determine if this element is visible-->
@@ -7,6 +28,13 @@
         <h2>Todo #{{todosArray[0].id}}</h2>
         <p>Task: {{todosArray[0].content}}</p>
         <p>Status: {{todosArray[0].status}}</p>
+
+        <label for ="updateBox1">Update Task?</label>
+        <!-- Two way binding! [(ngModel)] declares that this tag will take user input -->
+        <input id="updateBox1" [(ngModel)] = "todosArray[0].content" />
+        <!-- With this two way binding, we allow the user to update the task in the todo card-->
+
+        <!-- This button uses (event binding) to change the status to complete -->
         <button (click) = "toggleStatus(todosArray[0].id)">Complete Task</button>
 
     </div>
