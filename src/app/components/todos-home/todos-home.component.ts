@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TodosHomeComponent implements OnInit {
 
+  hiddenToggle: boolean = true;
+
   // Creating some variables that will be the tasks on the To Do List webpage
 
   // These are variables that point to {objects} that represent each of our To Do tasks
@@ -51,7 +53,12 @@ export class TodosHomeComponent implements OnInit {
   toggleStatus(id:number){
     
     this.todosArray[id-1].status = "Complete";
+  }
 
+  
+  toggleVisibility(){
+    this.hiddenToggle = !this.hiddenToggle 
+    // change the value of the "hiddenToggle" variable to the opposite of what it is
   }
 
 }

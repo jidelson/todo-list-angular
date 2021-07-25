@@ -1,7 +1,8 @@
 <div class="grid-container">
 
-    <div class="todo-card">
-        <!-- String Interpolation!! Taking TS values and putting them in our HTML-->
+    <!--Using [property binding] on the "hidden" property to determine if this element is visible-->
+    <div class="todo-card" [hidden] = "hiddenToggle"> <!--hidden refers to the TS variable-->
+        <!-- {{String Interpolation}}!! Taking TS values and putting them in our HTML-->
         <!-- Grabbing these values from the todosArray-->
         <h2>Todo #{{todosArray[0].id}}</h2>
         <p>Task: {{todosArray[0].content}}</p>
@@ -10,7 +11,7 @@
 
     </div>
 
-    <div class="todo-card">
+    <div class="todo-card" [hidden] = "hiddenToggle">
         <h2>Todo #{{todosArray[1].id}}</h2>
         <p>Task: {{todosArray[1].content}}</p>
         <p>Status: {{todosArray[1].status}}</p>
@@ -18,19 +19,22 @@
 
     </div>
 
-    <div class="todo-card">
+    <div class="todo-card" [hidden] = "hiddenToggle">
         <h2>Todo #{{todosArray[2].id}}</h2>
         <p>Task: {{todosArray[2].content}}</p>
         <p>Status: {{todosArray[2].status}}</p>
         <button (click) = "toggleStatus(todosArray[2].id)">Complete Task</button>
     </div>
 
-    <div class="todo-card">
+    <div class="todo-card" [hidden] = "hiddenToggle">
         <h2>Todo #{{todosArray[3].id}}</h2>
         <p>Task: {{todosArray[3].content}}</p>
         <p>Status: {{todosArray[3].status}}</p>
         <button (click) = "toggleStatus(todosArray[3].id)">Complete Task</button>
     </div>
+<!-- We're going to use event binding on a button that calls a function-->
+<!-- This function will toggle our property-bound "hidden" variable between true/false-->
+<button (click) = "toggleVisibility()">Toggle To Do List</button>
 
 
 </div>
